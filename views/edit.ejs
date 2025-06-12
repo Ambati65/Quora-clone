@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit post</title>
-    <link rel="stylesheet" href="/quora.css">
+    <title>Edit Note</title>
+    <link rel="stylesheet" href="/note-taking-app.css">
 </head>
 <body>
-    <h1>Quora</h1>
-    <h3>Edit post</h3>
+    <h1>Note-Taking App</h1>
+    <h3>Edit Note</h3>
     <div class="posts">
-      <p>id :<%=post.id%></p>
-      <p>Username :@<%=post.username%></p>
+      <p>id :<%=note.id%></p>
+      <p>Title :@<%=note.title%></p>
     </div>
-    <form method="post" action="/posts/<%=post.id%>?_method=PATCH">
-        <textarea name="content" placeholder="<%=post.content%>"></textarea>
+    <form method="post" action="/notes/<%=note.id%>?_method=PATCH">
+        <textarea name="content" placeholder="<%=note.content%>"></textarea>
         <button type="submit">Update</button>
     </form>
 </body>

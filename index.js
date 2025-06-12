@@ -17,62 +17,62 @@ app.listen(port ,()=>{
     console.log(`Server is running on port ${port}`);
 });
 
-let posts = [
+let notes = [
     {
         id: uuidv4(),
-        username: "rahul",
+        title: "Eat",
         content : "nothing to see here"
     },
     {
         id: uuidv4(),
-        username: "sumanth",
+        title: "Sleep",
         content : "how about no?"
     },
     {
         id: uuidv4(),
-        username: "prakash",
+        title: "Code",
         content : "this is a great post"
     },
 ];
 
-app.get("/posts",(req,res)=>{
-    res.render("index.ejs",{posts});
+app.get("/notes",(req,res)=>{
+    res.render("index.ejs",{notes});
 });
 
-app.get("/posts/new",(req,res)=>{
+app.get("/notes/new",(req,res)=>{
     res.render("new.ejs");
 });
 
-app.post("/posts",(req,res)=>{
+app.post("/notes",(req,res)=>{
     let id= uuidv4();
-    let {username, content} = req.body;
-    posts.push({id,username,content});
-    res.redirect("/posts");
-    res.send("post is working");
+    let {title, content} = req.body;
+    notes.push({id,title,content});
+    res.redirect("/notes");
+    res.send("note is working");
 });
 
-app.get("/posts/:id",(req,res)=>{
+app.get("/notes/:id",(req,res)=>{
     let {id}=req.params;
-    let post = posts.find((p)=>id===p.id);
-    res.render("show.ejs",{post});
+    let note = notes.find((p)=>id===p.id);
+    res.render("show.ejs",{note});
 });
 
-app.patch("/posts/:id",(req,res)=>{
+app.patch("/notes/:id",(req,res)=>{
     let {id}=req.params;
-    let post = posts.find((p)=>id===p.id);
+    let post = notes.find((p)=>id===p.id);
     let newcontent = req.body.content;
     post.content = newcontent;
-    res.redirect("/posts");
+    res.redirect("/notes");
 });
 
-app.get("/posts/:id/edit",(req,res)=>{
+app.get("/notes/:id/edit",(req,res)=>{
     let {id} =req.params;
-    let post = posts.find((p)=>id===p.id);
-    res.render("edit.ejs",{post});
+    let note = notes.find((p)=>id===p.id);
+    res.render("edit.ejs",{note});
 });
 
-app.delete("/posts/:id",(req,res)=>{
+app.delete("/notes/:id",(req,res)=>{
     let {id}=req.params;
-    posts = posts.filter((p)=>id!==p.id);
-    res.redirect("/posts");
+    notes = notes.filter((p)=>id!==p.id);
+    res.redirect("/notes");
 });

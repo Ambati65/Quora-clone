@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>post details</title>
-    <link rel="stylesheet" href="/quora.css">
+    <title>Note Taking App</title>
+    <link rel="stylesheet" href="/note-taking-app.css">
 </head>
 <body>
-    <h1>Quora post</h1>
-    <h3>post details</h3>
-    <h4>id: <%=post.id%></h4>
+    <h1>Note Taking App</h1>
+    <h3>Note details</h3>
+    <h4>id: <%=note.id%></h4>
     <div class="posts">
-        <h2>@<%=post.username%></h2>
-        <h4><%=post.content%></h4>
+        <h2>@<%=note.title%></h2>
+        <h4><%=note.content%></h4>
         <br />
-        <a href="http://localhost:8080/posts">Back to home</a>
+        <a href="http://localhost:8080/notes">Back to home</a>
     </div>
 </body>
 </html>

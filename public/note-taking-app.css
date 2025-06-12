@@ -1,0 +1,13 @@
+.note{
+    background-color:gray;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
